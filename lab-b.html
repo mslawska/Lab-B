@@ -12,28 +12,21 @@
 
 <body>
     <div class="container">
+
         <div class = "search">
             <span class="search-icon">🔍</span>
-            <input type="text" name="query" class="search-input" placeholder="Szukaj...">
+            <input type="text" id="searchInput" class="search-input" placeholder="Szukaj...">
         </div>
 
-        <div class="list-container">
-            <div class="list">
-                <input type="text" name="query" class="search-input">
-               
-                <div class="data">
-                    <input type="date" name="date" class="date-input">
-                </div>
+        <ul id ="taskList" class="list-container"></ul>
 
-                <button id="delate">Usuń</button>
-                
-         </div>
-            <div class="add-container">
-                <input type="text" name="query" class="search-input">
-                <input type="date" name="date" class="date-input">
-                <button id="add">Dodaj</button>
-            </div>
+        <div class="add-container">
+            <input type="text" id="taskInput">
+            <input type="date" id="dateInput" class="date-input">
+            <button id="addTaskBtn">Dodaj</button>
         </div>
+
+        
     </div>
-
+    <script src="script.js"></script>
 </body>
