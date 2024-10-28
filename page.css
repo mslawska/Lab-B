@@ -2,13 +2,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(153, 61, 104, 0.89);
+    background-color: rgb(233, 208, 176);
     padding: 30px;
     border-radius: 10px;
     
    
 }
 
+
+
+li{
+    margin-bottom: 10px;
+}
+.task-date {
+    margin-left: 60px;
+}
 
 .search{
     text-align: center;
@@ -23,10 +31,6 @@
     color: #aaa; 
 }
 
-.list-container{
-    
-    
-}
 
 .list{
     display: flex;
