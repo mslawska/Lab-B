@@ -4,6 +4,7 @@ class Todo {
         this.draw(); // Rysowanie listy na starcie
     }
 
+<<<<<<< HEAD
     // Metoda odpowiedzialna za renderowanie listy zadań
     draw(filter = '') {
         const taskList = document.getElementById('taskList');
@@ -66,6 +67,38 @@ class Todo {
             taskItem.appendChild(dateItem);
             taskItem.appendChild(deleteBtn); // Dodaj przycisk usuwania
             taskList.appendChild(taskItem);
+=======
+    // Metoda odpowiedzialna za renderowanie listy zadań (nazywana draw)
+    draw(filter = '') {
+        const taskList = document.getElementById('taskList');
+        taskList.innerHTML = ''; // Czyszczenie listy
+
+        this.tasks.forEach((task, index) => {
+            if (task.text.toLowerCase().includes(filter.toLowerCase())) {
+                const li = document.createElement('li');
+                const taskText = document.createElement('span');
+                taskText.classList.add('task-text');
+                taskText.innerHTML = this.highlightText(task.text, filter);
+
+                // Wyświetlanie daty, jeśli istnieje
+                if (task.date) {
+                    const taskDate = document.createElement('span');
+                    taskDate.classList.add('task-date');
+                    taskDate.innerText = ` (do: ${this.formatDate(task.date)})`; // Użycie nowej metody formatDate
+                    taskText.appendChild(taskDate);
+                }
+
+                taskText.addEventListener('click', () => this.editTask(index));
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '🗑️';
+                deleteBtn.addEventListener('click', () => this.deleteTask(index));
+
+                li.appendChild(taskText);
+                li.appendChild(deleteBtn);
+                taskList.appendChild(li);
+            }
+>>>>>>> 14be656de9ca6e8e63e5131864f21229c2402541
         });
     }
 
@@ -116,7 +149,11 @@ class Todo {
     highlightText(text, search) {
         if (!search) return text;
         const regex = new RegExp(`(${search})`, 'gi');
+<<<<<<< HEAD
         return text.replace(regex, '<span style="background-color: yellow;">$1</span>');
+=======
+        return text.replace(regex, '<strong>$1</strong>');
+>>>>>>> 14be656de9ca6e8e63e5131864f21229c2402541
     }
 
     // Metoda zapisująca zadania do Local Storage
@@ -127,7 +164,11 @@ class Todo {
     // Metoda formatująca datę do postaci d M yyyy
     formatDate(dateString) {
         const date = new Date(dateString);
+<<<<<<< HEAD
         const options = { day: '2-digit', month: '2-digit', year: 'numeric' }; // Ustawienia formatowania
+=======
+        const options = { day: 'numeric', month: 'short', year: 'numeric' }; // Ustawienia formatowania
+>>>>>>> 14be656de9ca6e8e63e5131864f21229c2402541
         return date.toLocaleDateString('pl-PL', options); // Użycie polskiego formatu
     }
 }
